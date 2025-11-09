@@ -1,0 +1,42 @@
+<div class="mainscreen">
+    <div class="header">
+        PoolCarz
+    </div>
+    <div class="screen">
+    <div class="logincart" >
+        <div class="loginheader">
+                Login
+        </div>
+        <div class="loginbody">
+            <div class="container">
+                <form [formGroup] = "loginform">
+                    <div class="row">
+                        <Label class="col-md-4 my-2 py-2" style="font-weight: bold;">User Name</Label>
+                        <input class="col-md-7 my-2 py-2" style="border-radius: 3px;" type="text" formControlName="UserName">
+                    </div>
+                    <div *ngIf="UserName.invalid && UserName.touched">
+                       <h6 style="color: red;">Username is invalid</h6>
+                    </div>
+                    <div class="row">
+                        <Label class="col-md-4 my-2 py-2" style="font-weight: bold;">Password</Label>
+                        <input class="col-md-7 my-2 py-2" style="border-radius: 3px;" type="text" formControlName="Password">
+                    </div>
+                    <div *ngIf="Password.invalid && Password.touched">
+                        <h6 style="color: red;">Password is invalid</h6>
+                     </div>
+                </form>
+            </div>
+            <div *ngIf="this.invalid">
+                <h6 style="color: red; margin-left: 14px;">Invalid Credentials!</h6>
+            </div>
+            <div class="button mt-4">
+                <div>
+                    <button class="btn btn-primary" [disabled]="loginform.invalid" (click)="submit()">Login</button>
+                </div>
+            </div>
+        </div>
+
+        </div>
+
+    </div>
+</div>
