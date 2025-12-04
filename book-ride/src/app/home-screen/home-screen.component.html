@@ -1,0 +1,75 @@
+<div class="mainscreen">
+    <div class="header">
+        PoolCarz
+    </div>
+    <div class="maincard">
+        <div class="card">
+            <div class="tabletitle">
+            <P>Book a Ride</P>
+            </div>
+            <div class="innercontent">
+               <div class="textcontent">
+                jdsnccnnnnnnnnnnnnnnnnnnnnnn jnjn nidnc nnjdijcid cnmijijdjc dniinj j iendienj ej jenidjidje dbndiuneidnje cjenienjdiend
+                jdsnccnnnnnnnnnnnnnnnnnnnnnn jnjn nidnc nnjdijcid cnmijijdjc dniinj j iendienj ej jenidjidje dbndiuneidnje cjenienjdiend
+
+               </div>
+               <div class="buttons">
+                   <div *ngIf="!showallbuttons">
+                        <button  class="btn btn-primary m-2" style="opacity: 70%;"(click)="showallrides()">
+                            Show All Rides
+                        </button>
+                    </div>
+                   <div *ngIf="showallbuttons"> 
+                        <button  class="btn btn-primary m-2" (click)="showallrides()">
+                            Show All Rides
+                        </button>
+                        <button  class="btn btn-primary m-2">
+                            To Office
+                        </button>
+                        <button  class="btn btn-primary m-2">
+                            From Office
+                        </button>
+                        <button  class="btn btn-primary m-2">
+                            Others
+                        </button>
+                    </div>
+
+                   <div *ngIf="showallbuttons" style="flex:1; width: -webkit-fill-available;">
+                    <table class="table">
+                        <thead >
+                            <tr >
+                                <th class="tableheader">Start Point</th>
+                                <th class="tableheader">End Point</th>
+                                <th class="tableheader">Seats Available</th>
+                            </tr>
+
+                        </thead>
+                        <tbody class="tablebody">
+                                <tr *ngFor="let ride of rides" (click)="selected(ride)">
+                                    <td class="column">
+                                        {{ride.source}}
+                                    </td>
+                                    <td class="column">
+                                        {{ride.destination}}
+                                    </td>
+                                    <td class="column">
+                                        {{ride.seats}}
+                                    </td>
+                                </tr>
+                        </tbody>
+                    </table>
+                   </div>
+                   <div style="width: 100%;" *ngIf="rideclick">
+                      <app-ride-details [details] = "ridedetails" (messageEvent)="bookride($event)" [book]="bookboolean"></app-ride-details>
+                   </div>
+                   <div>
+                        <button class="btn btn-primary m-2" (click)="OfferRide()">
+                            Offer A Ride
+                        </button>
+                   </div>
+               </div>
+            </div>
+        </div>
+
+    </div>
+</div>

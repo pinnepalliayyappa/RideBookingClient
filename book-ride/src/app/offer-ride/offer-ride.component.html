@@ -1,0 +1,66 @@
+<div class="mainscreen">
+    <div class="header">
+        PoolCarz
+    </div>
+    <div class="remaining">
+        <div class="card">
+            <div class="cardheader">
+               <p>Car Ride Registration form</p>
+            </div>
+            <div class="cardbody container">
+                <form [formGroup]="rideForm">
+                    <div >
+                        <Label>Name</Label>
+                    </div>
+                    <div>
+                        <input class="inputfield" type="text" formControlName="name"/>
+                    </div>
+                    <div *ngIf="name.touched && name.invalid">
+                        <h6 style="color: red; margin-left: 4px;">Invalid Name</h6>
+                    </div>
+                    <div >
+                        <Label>Start Location</Label>
+                    </div>
+                    <div>
+                        <input class="inputfield" type="text" formControlName="source"/>
+                    </div>
+                    <div *ngIf="source.touched && source.invalid">
+                        <h6 style="color: red; margin-left: 4px;">Invalid Start Location</h6>
+                    </div>
+                    <div>
+                        <Label>Destination</Label>
+                    </div>
+                    <div >
+                        <input class="inputfield" type="text" formControlName="destination"/>
+                    </div>
+                    <div *ngIf="destination.touched && destination.invalid">
+                        <h6 style="color: red; margin-left: 4px;">Invalid Destination</h6>
+                    </div>
+                    <div>
+                        <Label>Car</Label>
+                    </div>
+                    <div >
+                        <input class="inputfield" type="text" formControlName="car"/>
+                    </div>
+                    <div *ngIf="car.touched && car.invalid">
+                        <h6 style="color: red; margin-left: 4px;">Invalid Car</h6>
+                    </div>
+                    <div >
+                        <Label>Seats Available</Label>
+                    </div>
+                    <div >
+                        <input class="inputfield" type="number" formControlName="seats"/>
+                    </div>
+                    <div *ngIf="seats.touched && seats.invalid">
+                        <h6 style="color: red; margin-left: 4px;">Invalid Seats Available</h6>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary" [disabled]="rideForm.invalid || invalid" style="margin: 10px;" (click)="submit()">Submit</button>
+                        <button class="btn btn-primary" (click)="back()">Go Back</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

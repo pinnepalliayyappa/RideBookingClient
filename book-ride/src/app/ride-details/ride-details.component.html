@@ -1,0 +1,37 @@
+<div class="ridedetails">
+    <div class="loginheader">
+       Ride Details
+    </div>
+    <div class="body">
+        <table style="width: 100%;">
+            <thead>
+                <tr style="width: -webkit-fill-available;">
+                    <th> Id</th>
+                    <th> Name</th>
+                    <th> Car</th>
+                    <th> Seats Left</th>
+                    <th> Pick Up Point</th>
+                    <th> Destination</th>
+                </tr>
+            </thead>
+            <tbody>
+                <td> {{details.id}}</td>
+                <td> {{details.name}}</td>
+                <td> {{details.car}}</td>
+                <td> {{details.seats}}</td>
+                <td> {{details.source}}</td>
+                <td> {{details.destination}}</td>
+            </tbody>
+        </table>
+        <div class="bookbutton">
+           <button *ngIf="book" class="btn btn-primary" (click)="bookride(details.id)">
+            Book Ride
+           </button>
+           <button *ngIf="!book" class="btn btn-primary" (click)="cancelbooking(details.id)">
+            Cancel Booking
+           </button>
+        </div>
+
+
+    </div>
+</div>
